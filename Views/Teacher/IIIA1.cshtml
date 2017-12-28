@@ -1,0 +1,224 @@
+﻿@model BlueRubric.Models.BlueRubricVM
+@{
+    ViewBag.Title = "IIIA1";
+}
+@using (Html.BeginForm())
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <p>Standard III, Indicator A, Element 1. Parent/Family Engagement </p>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <label class="col-md-5">Filter result by:</label>
+                    <div class="col-md-7">
+                        <select class="form-control"><option>Elementary</option><option>Middle</option><option>High</option></select>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <input type="submit" class="btn btn-default" value="Back to Rubric" />
+            </div>
+        </div>
+        <br />
+        <br />
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel-group">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading"><b>Communication Home</b></div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-1" onclick="GetText(this, 'No evidence of communication exists.',1)"><span class="glyphicon glyphicon-minus red"></span></div>
+                                <div class="col-md-11">No evidence of communication exists.</div>
+                                @*<input type="hidden" id="Standard1" />*@
+                                @*@Html.HiddenFor(p => p.Standard1)*@
+                                @Html.HiddenFor(p => p.Standard1)
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1" onclick="GetText(this, 'Little evidence of routine communiation exists.',2)"><span class="glyphicon glyphicon-minus red"></span></div>
+                                <div class="col-md-11">Little evidence of routine communiation exists.</div>
+                                @Html.HiddenFor(p => p.Standard2)
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1" onclick="GetText(this, 'This Educator communicates with parents on a regular basis through the use of Emails, Newsletters, and a website.',3)"><span class="glyphicon glyphicon-plus green"></span></div>
+                                <div class="col-md-11">This Educator communicates with parents on a regular basis through the use of Emails, Newsletters, and a website.</div>
+                                @Html.HiddenFor(p => p.Standard3)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-warning">
+                        <div class="panel-heading"><b>Response to Parents</b></div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-1" onclick="GetText(this,'Often fails to call parents backin a timely manner.',4)"><span class="glyphicon glyphicon-minus red"></span></div>
+                                <div class="col-md-11">Often fails to call parents backin a timely manner.</div>
+                                @Html.HiddenFor(p => p.Standard4)
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1" onclick="GetText(this, 'Communicates with parents as expected and in a timely manner.',5)"><span class="glyphicon glyphicon-plus green"></span></div>
+                                <div class="col-md-11">Communicates with parents as expected and in a timely manner.</div>
+                                @Html.HiddenFor(p => p.Standard5)
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1" onclick="GetText(this, 'Ensures a positive relationship with parents by responding to their emails/calls immediately with detailed information.',6)"><span class="glyphicon glyphicon-plus green"></span><span class="glyphicon glyphicon-plus green"></span></div>
+                                <div class="col-md-11">Ensures a positive relationship with parents by responding to their emails/calls immediately with detailed information.</div>
+                                @Html.HiddenFor(p => p.Standard6)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-warning">
+                        <div class="panel-heading"><b>Encouragement</b></div>
+                        <div class="panel-body">
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<br />
+<br />
+<script>
+    //function goBack() {
+    //    window.history.back();
+
+    //}
+    //$(".copy_Content").click(function (event) {
+    //    if ($(this).hasClass("glyphicon glyphicon-minus red copy_Content")) {
+    //        $(this).removeClass("glyphicon glyphicon-minus red copy_Content");
+    //        $(this).addClass("glyphicon glyphicon-plus green copy_Content");
+    //    }
+    //    else if ($(this).hasClass("glyphicon glyphicon-plus green copy_Content")) {
+    //        $(this).removeClass("glyphicon glyphicon-plus green copy_Content");
+    //        $(this).addClass("glyphicon glyphicon-minus red copy_Content");
+    //    }
+    //    return true;
+    //})
+    function GetText(event, txt, inputText) {
+        debugger
+        switch (inputText) {
+            case 1:
+                if ($("#Standard1").val()=="") {
+                    $("#Standard1").val(txt);
+                    $(event).next('div').addClass('green');
+
+                }
+                else {
+                    $("#Standard1").val("");
+                    $(event).next('div').removeClass('green');
+                }
+                break;
+            case 2:
+                if ($("#Standard2").val() == "") {
+                    $("#Standard2").val(txt);
+                    $(event).next('div').addClass('green');
+
+                }
+                else {
+                    $("#Standard2").val("");
+                    $(event).next('div').removeClass('green');
+                }
+                break;
+            case 3:
+                if ($("#Standard3").val() == "") {
+                    $("#Standard3").val(txt);
+                    $(event).next('div').addClass('green');
+
+                }
+                else {
+                    $("#Standard3").val("");
+                    $(event).next('div').removeClass('green');
+                }
+                break;
+            case 4:
+                if ($("#Standard4").val() == "") {
+                    $("#Standard4").val(txt);
+                    $(event).next('div').addClass('green');
+
+                }
+                else {
+                    $("#Standard4").val("");
+                    $(event).next('div').removeClass('green');
+                }
+                break;
+            case 5:
+                if ($("#Standard5").val() == "") {
+                    $("#Standard5").val(txt);
+                    $(event).next('div').addClass('green');
+
+                }
+                else {
+                    $("#Standard5").val("");
+                    $(event).next('div').removeClass('green');
+                }
+                break;
+            case 6:
+                if ($("#Standard6").val() == "") {
+                    $("#Standard6").val(txt);
+                    $(event).next('div').addClass('green');
+
+                }
+                else {
+                    $("#Standard6").val("");
+                    $(event).next('div').removeClass('green');
+                }
+                break;
+        }
+        //if ($(event).hasClass("glyphicon glyphicon-minus red copy_Content")) {
+        //    $(event).removeClass("glyphicon glyphicon-minus red copy_Content");
+        //    $(event).addClass("glyphicon glyphicon-plus green copy_Content");
+        //    switch (inputText) {
+        //        case 1:
+        //            $("#Standard1").val(txt);
+        //            break;
+        //        case 2:
+        //            $("#Standard2").val(txt);
+        //            break;
+        //        case 3:
+        //            $("#Standard3").val(txt);
+        //            break;
+        //        case 4:
+        //            $("#Standard4").val(txt);
+        //            break;
+        //        case 5:
+        //            $("#Standard5").val(txt);
+        //            break;
+        //        case 6:
+        //            $("#Standard6").val(txt);
+        //            break;
+        //    }
+        //}
+        //else if ($(event).hasClass("glyphicon glyphicon-plus green copy_Content")) {
+        //    $(event).removeClass("glyphicon glyphicon-plus green copy_Content");
+        //    $(event).addClass("glyphicon glyphicon-minus red copy_Content");
+        //    switch (inputText) {
+        //        case 1:
+        //            $("#Standard1").val("");
+        //            break;
+        //        case 2:
+        //            $("#Standard2").val("");
+        //            break;
+        //        case 3:
+        //            $("#Standard3").val("");
+        //            break;
+        //        case 4:
+        //            $("#Standard4").val("");
+        //            break;
+        //        case 5:
+        //            $("#Standard5").val("");
+        //            break;
+        //        case 6:
+        //            $("#Standard6").val("");
+        //            break;
+        //    }
+        //}
+    }
+</script>
